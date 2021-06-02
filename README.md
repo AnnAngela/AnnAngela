@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm AnnAngela</h1>
-<h3 align="center">There's a stand we take. Echoes in our wake. For tonight's onset, forge ahead! As we rise to dawn, soon will night turn around. Where it all begins, forge ahead!</h3>
+<h3 align="center">There's a stand we take. Echoes in our wake. For tonight's onset, forge ahead!<br>As we rise to dawn, soon will night turn around. Where it all begins, forge ahead!</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=annangela&label=Profile%20views&color=0e75b6&style=flat" alt="annangela" /> </p>
 
