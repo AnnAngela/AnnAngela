@@ -1,7 +1,9 @@
 <h1 align="center">Hi 👋, I'm AnnAngela</h1>
 <div align="center">
-    <div><b>There's a stand we take. Echoes in our wake. For tonight's onset, forge ahead!</b></div>
-    <div><b>As we rise to dawn, soon will night turn around. Where it all begins, forge ahead!</b></div>
+    <div><b>Every step we take, echoes in our wake. Winding 'round our fate, forge ahead!</b></div>
+    <div><b>Should we lose our way, tire of all this pain. We won't be afraid, forge ahead!</b></div>
+    <div><b>Fearless hearts ablaze(When the world comes crumbling down), no more time to waste(know I'll be there). No, it's not too late(Though our fleeting moment has gone), forge ahead!(you're not--you're not alone YEAH!)</b></div>
+    <div><b>As we ride again(As you turn your eyes to the stars), to another end(oh, I'll be there). Where it all begins(With my chorus guiding you), forge ahead!(forge ahead!)</b></div>
     <div align="right">---- <a href="https://youtu.be/zTTtd6bnhFs?t=277" target="_blank">FINAL FANTASY XIV: ENDWALKER Full Trailer</a></div>
 </div>
 <br>
@@ -34,6 +36,6 @@
 
 <p><img align="center" src="https://github-readme-stats.annangela.vercel.app/api/top-langs?username=annangela&show_icons=true&locale=en&layout=compact&theme=buefy" alt="annangela" /></p>
 
-<p><img align="center" src="https://github-readme-stats.annangela.vercel.app/api?username=AnnAngela&count_private=true&show_icons=true&theme=buefy&cache_seconds=7200&include_all_commits=true&locale=en" alt="annangela" /></p>
+<p><img align="center" src="https://github-readme-stats.annangela.vercel.app/api?username=AnnAngela&show_icons=true&theme=buefy&cache_seconds=7200&include_all_commits=true&locale=en" alt="annangela" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com?user=annangela&theme=buefy" alt="annangela" /></p>
