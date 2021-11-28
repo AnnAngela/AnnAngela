@@ -34,8 +34,4 @@
     Tools: <a href="https://git-scm.com/" target="_blank"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40" /></a> <a href="https://webpack.js.org" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original-wordmark.svg" alt="webpack" width="40" height="40" /></a>
 </p>
 
-<p><img align="center" src="https://github-readme-stats.annangela.vercel.app/api/top-langs?username=annangela&show_icons=true&locale=en&layout=compact&theme=buefy" alt="annangela" /></p>
-
-<p><img align="center" src="https://github-readme-stats.annangela.vercel.app/api?username=AnnAngela&show_icons=true&theme=buefy&cache_seconds=7200&include_all_commits=true&locale=en" alt="annangela" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com?user=annangela&theme=buefy" alt="annangela" /></p>
+<p><img align="center" src="https://raw.githubusercontent.com/AnnAngela/AnnAngela/master/github-metrics.svg" alt="annangela" /></p>
