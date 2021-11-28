@@ -6,7 +6,8 @@
     <div><b>As we ride again(As you turn your eyes to the stars), to another end(oh, I'll be there). Where it all begins(With my chorus guiding you), forge ahead!(forge ahead!)</b></div>
     <div align="right">---- <a href="https://youtu.be/zTTtd6bnhFs?t=277" target="_blank">FINAL FANTASY XIV: ENDWALKER Full Trailer</a></div>
 </div>
-<br>
+<table border="0">
+<tr><td valign="top">
 <p align="left"><img src="https://komarev.com/ghpvc/?username=annangela&label=Profile%20views&color=0e75b6&style=flat" alt="annangela" /> </p>
 
 - 🔭 I’m currently working on **my website**
@@ -33,5 +34,7 @@
 <p align="left">
     Tools: <a href="https://git-scm.com/" target="_blank"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40" /></a> <a href="https://webpack.js.org" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original-wordmark.svg" alt="webpack" width="40" height="40" /></a>
 </p>
-
+    </td><td width="507">
 <p><img align="center" src="https://raw.githubusercontent.com/AnnAngela/AnnAngela/master/github-metrics.svg" alt="annangela" /></p>
+    </td></tr>
+    </table>
