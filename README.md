@@ -1,12 +1,20 @@
 <h1 align="center">Hi 👋, I'm AnnAngela</h1>
-<div align="center">
-    <div><b>Every step we take, echoes in our wake. Winding 'round our fate, forge ahead!</b></div>
-    <div><b>Should we lose our way, tire of all this pain. We won't be afraid, forge ahead!</b></div>
-    <div><b>Fearless hearts ablaze(When the world comes crumbling down), no more time to waste(know I'll be there). No, it's not too late(Though our fleeting moment has gone), forge ahead!(you're not--you're not alone YEAH!)</b></div>
-    <div><b>As we ride again(As you turn your eyes to the stars), to another end(oh, I'll be there). Where it all begins(With my chorus guiding you), forge ahead!(forge ahead!)</b></div>
-    <div align="right">---- <a href="https://youtu.be/zTTtd6bnhFs?t=277" target="_blank">FINAL FANTASY XIV: ENDWALKER Full Trailer</a></div>
-</div>
-<table border="0">
+<table align="center"><tr><td colspan="2" align="center">
+<div><b>Every step we take, echoes in our wake.</b></div>
+<div><b>Winding 'round our fate, forge ahead!</b></div>
+<div><b>Should we lose our way, tire of all this pain.</b></div>
+<div><b>We won't be afraid, forge ahead!</b></div></td></tr>
+<tr><td align="center"><div><b>Fearless hearts ablaze, no more time to waste.</b></div>
+<div><b>No, it's not too late, forge ahead!</b></div>
+<div><b>As we ride again, to another end.</b></div>
+<div><b>Where it all begins, forge ahead!</b></div></td>
+<td align="center"><div><b>When the world comes crumbling down, know I'll be there.</b></div>
+<div><b>Though our fleeting moment has gone, you're not--you're not alone YEAH!</b></div>
+<div><b>As you turn your eyes to the stars, oh I'll be there.</b></div>
+<div><b>With my chorus guiding you, forge ahead!</b></div></td></tr>
+<tr><td colspan="2"><div align="right">---- <a href="https://youtu.be/zTTtd6bnhFs?t=277" target="_blank">FINAL FANTASY XIV: ENDWALKER Full Trailer</a></div></td></tr>
+</table>
+<table>
 <tr><td valign="top">
 <p align="left"><img src="https://komarev.com/ghpvc/?username=annangela&label=Profile%20views&color=0e75b6&style=flat" alt="annangela" /> </p>
 
