@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 echo '-------------------------------------------------------------------------'
-echo 'sudo DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o "Dpkg::Options::=--force-confold" curl wget ca-certificates nano git libpam-systemd-'
-sudo DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o "Dpkg::Options::=--force-confold" curl wget ca-certificates nano git libpam-systemd-
+echo 'rm -rf ~/.nvm'
+rm -rf ~/.nvm
 echo '-------------------------------------------------------------------------'
-echo 'sudo apt autoremove --purge -y'
-sudo apt autoremove --purge -y
+echo 'nvs uninstall || echo "fine"'
+nvs uninstall || echo "fine"
+echo '-------------------------------------------------------------------------'
+echo 'rm -rf ~/.nvs'
+rm -rf ~/.nvs
 echo '-------------------------------------------------------------------------'
 echo 'sudo wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n'
 sudo wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n
