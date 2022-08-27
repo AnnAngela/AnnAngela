@@ -21,7 +21,7 @@ const c = {
  */
 const exec = (cmd, noerror = false) => new Promise((res, rej) => {
     c.info("[cmd]", cmd);
-    child_process.exec(cmd, {
+    child_process.exec(`sudo ${cmd}`, {
         cwd: "/",
     }, (error, stdout, stderr) => {
         if (!error || noerror && stdout.trim()) {
