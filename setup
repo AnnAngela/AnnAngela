@@ -1,9 +1,26 @@
 #!/usr/bin/env bash
+echo '-------------------------------------------------------------------------'
+echo 'sudo DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o "Dpkg::Options::=--force-confold" curl wget ca-certificates nano git libpam-systemd-'
 sudo DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o "Dpkg::Options::=--force-confold" curl wget ca-certificates nano git libpam-systemd-
+echo '-------------------------------------------------------------------------'
+echo 'sudo apt autoremove --purge -y'
 sudo apt autoremove --purge -y
+echo '-------------------------------------------------------------------------'
+echo 'sudo wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n'
 sudo wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n
+echo '-------------------------------------------------------------------------'
+echo 'sudo N_PRESERVE_NPM=1 bash /tmp/n lts'
 sudo N_PRESERVE_NPM=1 bash /tmp/n lts
+echo '-------------------------------------------------------------------------'
+echo 'sudo rm /tmp/n'
 sudo rm /tmp/n
+echo '-------------------------------------------------------------------------'
+echo 'sudo npm install npm n eslint --location=global'
 sudo npm install npm n eslint --location=global
+echo '-------------------------------------------------------------------------'
+echo 'sudo npm up --location=global'
 sudo npm up --location=global
+echo '-------------------------------------------------------------------------'
+echo 'echo "export N_PRESERVE_NPM=1" | sudo tee -a /root/.bashrc /home/codespace/.bashrc'
 echo "export N_PRESERVE_NPM=1" | sudo tee -a /root/.bashrc /home/codespace/.bashrc
+echo '-------------------------------------------------------------------------'
