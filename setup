@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-sudo su
-DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o "Dpkg::Options::=--force-confold" curl wget ca-certificates nano git libpam-systemd-
-apt autoremove --purge -y
-wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n
-N_PRESERVE_NPM=1 bash /tmp/n lts
-rm /tmp/n
-npm install npm n eslint --location=global
-npm up --location=global
-echo "export N_PRESERVE_NPM=1" | tee -a /root/.bashrc /home/codespace/.bashrc
+echo 'DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o "Dpkg::Options::=--force-confold" curl wget ca-certificates nano git libpam-systemd-' >> /tmp/setup
+echo 'apt autoremove --purge -y' >> /tmp/setup
+echo 'wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n' >> /tmp/setup
+echo 'N_PRESERVE_NPM=1 bash /tmp/n lts' >> /tmp/setup
+echo 'rm /tmp/n' >> /tmp/setup
+echo 'npm install npm n eslint --location=global' >> /tmp/setup
+echo 'npm up --location=global' >> /tmp/setup
+echo 'echo "export N_PRESERVE_NPM=1" | tee -a /root/.bashrc /home/codespace/.bashrc' >> /tmp/setup
+chmod +x /tmp/setop
+sudo bash /tmp/setop
