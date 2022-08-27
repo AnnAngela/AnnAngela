@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+/* eslint-env node */
+"use strict";
+const child_process = require("child_process");
+const fixZero = (n, l = 2) => {
+    let r = `${n}`;
+    while (r.length < l) {
+        r = `0${r}`;
+    }
+    return r;
+};
+const toLocalTimeZoneStrings = (date = new Date()) => `${date.getFullYear()}-${fixZero(date.getMonth() + 1)}-${fixZero(date.getDate())}T${fixZero(date.getHours())}:${fixZero(date.getMinutes())}:${fixZero(date.getSeconds())}.${fixZero(date.getMilliseconds(), 3)}+${fixZero(Math.floor(-date.getTimezoneOffset() / 60))}:${fixZero(-date.getTimezoneOffset() % 60)}`;
+const c = {
+    info: (...args) => console.info(toLocalTimeZoneStrings(), ...args),
+    error: (...args) => console.error(toLocalTimeZoneStrings(), ...args),
+};
+/**
+ * @param {string} cmd 
+ * @param {boolean} [noerror=false] 
+ * @returns {Promise<string, { error: any, stdout: string, stderr: string}>}
+ */
+const exec = (cmd, noerror = false) => new Promise((res, rej) => {
+    c.info("[cmd]", cmd);
+    child_process.exec(cmd, {
+        cwd: "/",
+    }, (error, stdout, stderr) => {
+        if (!error || noerror && stdout.trim()) {
+            const result = stdout.trim() || stderr.trim();
+            c.info("[cmd-result]", result);
+            res(result);
+        } else {
+            const result = {
+                error, stdout: stdout.trim(), stderr: stderr.trim(),
+            };
+            c.error("[cmd-error]", result);
+            rej(result);
+        }
+    });
+});
+const commands = [
+    "DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y -o \"Dpkg::Options::=--force-confold\" curl wget ca-certificates nano git libpam-systemd-",
+    "apt autoremove --purge -y",
+    "wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n",
+    "N_PRESERVE_NPM=1 bash /tmp/n lts",
+    "rm /tmp/n",
+    "npm install npm n --location=global",
+    "npm up --location=global",
+    'echo "export N_PRESERVE_NPM=1" | tee -a /root/.bashrc /home/codespace/.bashrc',
+];
+(async () => {
+    c.info("Initializing ...");
+    for (const command of commands) {
+        await exec(command);
+    }
+    c.info("Successfully initialized.");
+    process.exit(0);
+})().catch((e) => {
+    c.error("[Error]", e);
+    process.exit(1);
+});
