@@ -6,4 +6,4 @@ sudo N_PRESERVE_NPM=1 bash /tmp/n lts
 sudo rm /tmp/n
 sudo npm install npm n eslint --location=global
 sudo npm up --location=global
-sudo echo "export N_PRESERVE_NPM=1" | tee -a /root/.bashrc /home/codespace/.bashrc
+echo "export N_PRESERVE_NPM=1" | sudo tee -a /root/.bashrc /home/codespace/.bashrc
