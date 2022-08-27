@@ -7,5 +7,5 @@ echo 'rm /tmp/n' >> /tmp/setup
 echo 'npm install npm n eslint --location=global' >> /tmp/setup
 echo 'npm up --location=global' >> /tmp/setup
 echo 'echo "export N_PRESERVE_NPM=1" | tee -a /root/.bashrc /home/codespace/.bashrc' >> /tmp/setup
-chmod +x /tmp/setop
-sudo bash /tmp/setop
+chmod +x /tmp/setup
+sudo bash /tmp/setup
