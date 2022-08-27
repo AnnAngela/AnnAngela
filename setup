@@ -43,7 +43,7 @@ const commands = [
     "wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n",
     "N_PRESERVE_NPM=1 bash /tmp/n lts",
     "rm /tmp/n",
-    "npm install npm n --location=global",
+    "npm install npm n eslint --location=global",
     "npm up --location=global",
     'echo "export N_PRESERVE_NPM=1" | tee -a /root/.bashrc /home/codespace/.bashrc',
 ];
