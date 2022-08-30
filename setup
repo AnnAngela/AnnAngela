@@ -1,28 +1,25 @@
 #!/usr/bin/env bash
 echo '-------------------------------------------------------------------------'
-echo 'rm -rf ~/.nvm'
-rm -rf ~/.nvm
+echo 'rm -rf /home/codespace/.nvm'
+rm -rf /home/codespace/.nvm
 echo '-------------------------------------------------------------------------'
-echo 'sed -i -E "s/[^\n]*NVM_DIR[^\n]*//g" ~/.bashrc'
-sed -i -E "s/[^\n]*NVM_DIR[^\n]*//g" ~/.bashrc
+echo 'sed -i -E "s/[^\n]*NVM_DIR[^\n]*//g" /home/codespace/.bashrc'
+sed -i -E "s/[^\n]*NVM_DIR[^\n]*//g" /home/codespace/.bashrc
 echo '-------------------------------------------------------------------------'
-echo '[ -s "~/.nvs/nvs.sh" ] && . "~/.nvs/nvs.sh"'
-[ -s "~/.nvs/nvs.sh" ] && . "~/.nvs/nvs.sh"
+echo 'rm -rf /home/codespace/.nvs'
+rm -rf /home/codespace/.nvs
 echo '-------------------------------------------------------------------------'
-echo 'nvs uninstall || echo "fine"'
-nvs uninstall || echo "fine"
+echo 'sed -i -E "s/[^\n]*NVS_HOME[^\n]*//g" /home/codespace/.bashrc'
+sed -i -E "s/[^\n]*NVS_HOME[^\n]*//g" /home/codespace/.bashrc
 echo '-------------------------------------------------------------------------'
-echo 'rm -rf ~/.nvs'
-rm -rf ~/.nvs
-echo '-------------------------------------------------------------------------'
-echo 'sudo wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n'
-sudo wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n
+echo 'wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n'
+wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n
 echo '-------------------------------------------------------------------------'
 echo 'sudo N_PRESERVE_NPM=1 bash /tmp/n lts'
 sudo N_PRESERVE_NPM=1 bash /tmp/n lts
 echo '-------------------------------------------------------------------------'
-echo 'sudo rm /tmp/n'
-sudo rm /tmp/n
+echo 'rm /tmp/n'
+rm /tmp/n
 echo '-------------------------------------------------------------------------'
 echo 'sudo npm install npm n eslint --location=global'
 sudo npm install npm n eslint --location=global
