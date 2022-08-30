@@ -1,32 +1,5 @@
 #!/usr/bin/env bash
-echo '-------------------------------------------------------------------------'
-echo 'rm -rf /home/codespace/.nvm'
-rm -rf /home/codespace/.nvm
-echo '-------------------------------------------------------------------------'
-echo 'sed -i -E "s/[^\n]*NVM_DIR[^\n]*//g" /home/codespace/.bashrc'
-sed -i -E "s/[^\n]*NVM_DIR[^\n]*//g" /home/codespace/.bashrc
-echo '-------------------------------------------------------------------------'
-echo 'rm -rf /home/codespace/.nvs'
-rm -rf /home/codespace/.nvs
-echo '-------------------------------------------------------------------------'
-echo 'sed -i -E "s/[^\n]*NVS_HOME[^\n]*//g" /home/codespace/.bashrc'
-sed -i -E "s/[^\n]*NVS_HOME[^\n]*//g" /home/codespace/.bashrc
-echo '-------------------------------------------------------------------------'
-echo 'wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n'
-wget https://raw.githubusercontent.com/tj/n/master/bin/n -O /tmp/n
-echo '-------------------------------------------------------------------------'
-echo 'sudo N_PRESERVE_NPM=1 bash /tmp/n lts'
-sudo N_PRESERVE_NPM=1 bash /tmp/n lts
-echo '-------------------------------------------------------------------------'
-echo 'rm /tmp/n'
-rm /tmp/n
-echo '-------------------------------------------------------------------------'
-echo 'sudo npm install npm n eslint --location=global'
-sudo npm install npm n eslint --location=global
-echo '-------------------------------------------------------------------------'
-echo 'sudo npm up --location=global'
-sudo npm up --location=global
-echo '-------------------------------------------------------------------------'
-echo 'echo "export N_PRESERVE_NPM=1" | sudo tee -a /root/.bashrc /home/codespace/.bashrc'
-echo "export N_PRESERVE_NPM=1" | sudo tee -a /root/.bashrc /home/codespace/.bashrc
-echo '-------------------------------------------------------------------------'
+sudo node /workspaces/.codespaces/.persistedshare/dotfiles/repeat.js
+echo "#!/usr/bin/env bash" >> /etc/profile.d/99-init.sh
+echo "sudo node /workspaces/.codespaces/.persistedshare/dotfiles/repeat.js" >> /etc/profile.d/99-init.sh
+chmod 777 /etc/profile.d/99-init.sh
