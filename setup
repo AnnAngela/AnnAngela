@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 sudo node /workspaces/.codespaces/.persistedshare/dotfiles/repeat.js
-echo "#!/usr/bin/env bash" >> /etc/profile.d/99-init.sh
-echo "sudo node /workspaces/.codespaces/.persistedshare/dotfiles/repeat.js" >> /etc/profile.d/99-init.sh
-chmod 777 /etc/profile.d/99-init.sh
+echo "#!/usr/bin/env bash" | sudo tee -a /etc/profile.d/99-init.sh
+echo "sudo node /workspaces/.codespaces/.persistedshare/dotfiles/repeat.js" | sudo tee -a /etc/profile.d/99-init.sh
+sudo chmod 777 /etc/profile.d/99-init.sh
