@@ -7,7 +7,6 @@
 
 - ⚡ Fun fact **I am a bureaucrat from MoegirlPedia**
 
-
 <h3 align="left">Languages and Tools:</h3>
 <p align="left">
     Personal OS: <a href="https://www.microsoft.com/windows" target="_blank"><img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/microsoft-windows.svg" alt="windows" height="40" /></a>
