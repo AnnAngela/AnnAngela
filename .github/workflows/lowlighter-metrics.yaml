@@ -4,8 +4,15 @@ on:
     - cron: 0 */6 * * *
   workflow_dispatch:
   push:
+    paths:
+      - .github/workflows/lowlighter-metrics.yaml
     branches:
       - master
+
+concurrency:
+  group: ${{ github.workflow_ref }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
