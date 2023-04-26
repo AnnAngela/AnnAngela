@@ -30,6 +30,7 @@ jobs:
           base: header, activity, community, repositories, metadata
           base_indepth: true
           repositories_affiliations: owner, collaborator, organization_member
+          commits_authoring: AnnAngela, naganjue@vip.qq.com, annangela@moegirl.org, 9762652+AnnAngela@users.noreply.github.com
 
           # plugins/core
           config_timezone: Asia/Shanghai
@@ -41,6 +42,7 @@ jobs:
           repositories_skipped: AnnAngela/annangela.cn-monitor
           quota_required_rest: 1000
           quota_required_graphql: 1000
+          config_display: large
 
           # plugins/achievements
           plugin_achievements: yes
