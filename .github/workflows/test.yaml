@@ -15,9 +15,10 @@ jobs:
           - macos-latest
           - windows-latest
     steps:
-      - name: tmpfile=$(mktemp)
+      - name: mktemp
         env:
           TMPDIR: ${{ runner.temp }}
         run: |
           tmpfile=$(mktemp)
-          echo $tmpfile
+          echo "TMPDIR: $TMPDIR"
+          echo "tmpfile: $tmpfile"
