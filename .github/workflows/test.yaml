@@ -3,6 +3,9 @@ name: test
 on:
   workflow_dispatch:
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   test:
     name: Test on ${{ matrix.os }}
@@ -11,14 +14,17 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-latest
+          # - ubuntu-latest
           - macos-latest
-          - windows-latest
+          # - windows-latest
     steps:
-      - name: mktemp
+      - name: download
         env:
           TMPDIR: ${{ runner.temp }}
         run: |
-          tmpfile=$(mktemp)
-          echo "TMPDIR: $TMPDIR"
-          echo "tmpfile: $tmpfile"
+          wget https://github.com/MaaAssistantArknights/MaaRelease/releases/download/v4.20.0-beta.3/MAA-v4.20.0-beta.3-macos-universal.dmg
+          hdiutil attach MAA-v4.20.0-beta.3-macos-universal.dmg
+      - name: ls /Volumes
+        run: ls /Volumes
+      - name: tree /Volumes
+        run: tree /Volumes
