@@ -31,5 +31,6 @@ jobs:
           mkdir -p ${{ runner.temp }}/dylib
           cp /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib ${{ runner.temp }}/dylib
           ls -lh ${{ runner.temp }}/dylib
+          du -hs ${{ runner.temp }}/dylib
           zip -X9 MAA-${{ needs.create-tag.outputs.release_tag }}-macos-runtime-universal.zip ${{ runner.temp }}/dylib/*
           ls -lh MAA-${{ needs.create-tag.outputs.release_tag }}-macos-runtime-universal.zip
