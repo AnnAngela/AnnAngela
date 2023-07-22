@@ -26,7 +26,8 @@ jobs:
           hdiutil attach MAA-v4.20.0-beta.3-macos-universal.dmg
       - name: ls /Volumes
         run: ls /Volumes
-      - name: tree /Volumes
+      - name: dylib
         run: |
-          brew install tree
-          tree /Volumes
+          mkdir -p ${{ runner.temp }}/dylib
+          cp /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib ${{ runner.temp }}/dylib
+          ls -lh ${{ runner.temp }}/dylib
