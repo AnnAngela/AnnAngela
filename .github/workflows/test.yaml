@@ -27,4 +27,6 @@ jobs:
       - name: ls /Volumes
         run: ls /Volumes
       - name: tree /Volumes
-        run: tree /Volumes
+        run: |
+          brew install tree
+          tree /Volumes
