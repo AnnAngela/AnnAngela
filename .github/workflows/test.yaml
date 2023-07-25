@@ -22,6 +22,7 @@ jobs:
         env:
           TMPDIR: ${{ runner.temp }}
         run: |
+          mkdir packages
           wget https://github.com/MaaAssistantArknights/MaaRelease/releases/download/v4.20.0/MAA-v4.20.0-macos-universal.dmg -O packages/MAA-v4.20.0-macos-universal.dmg
       - name: dylib
         run: |
