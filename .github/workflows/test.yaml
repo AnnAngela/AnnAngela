@@ -33,7 +33,8 @@ jobs:
           cp -r /Volumes/MAA/MAA.app/Contents/Resources/resource macos-runtime-temp/resource
           ln -s macos-runtime-temp/libonnxruntime.1.14.1.dylib macos-runtime-temp/libonnxruntime.dylib
           ln -s macos-runtime-temp/libopencv_world4.407.dylib macos-runtime-temp/libopencv_world4.dylib
-          zip -rX9 ${{ github.workspace }}/packages/MAA-v4.20.0-macos-runtime-universal.zip macos-runtime-temp/*
+          cd macos-runtime-temp
+          zip -yrX9 ${{ github.workspace }}/packages/MAA-v4.20.0-macos-runtime-universal.zip *
           hdiutil detach /Volumes/MAA
       - name: result
         run: |
