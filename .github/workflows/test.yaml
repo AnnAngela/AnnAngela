@@ -38,9 +38,8 @@ jobs:
           hdiutil detach /Volumes/MAA
       - name: result
         run: |
-          echo ::group::packages:
+          echo packages:
           ls -l packages
-          echo ::endgroup::
           echo ::group::macos-runtime-universal.zip:
           unzip -l packages/MAA-v4.20.0-macos-runtime-universal.zip
           echo ::endgroup::
