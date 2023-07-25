@@ -39,7 +39,7 @@ jobs:
       - name: result
         run: |
           echo packages:
-          ls -l packages
+          ls -lh packages
           echo ::group::macos-runtime-universal.zip:
           unzip -l packages/MAA-v4.20.0-macos-runtime-universal.zip
           echo ::endgroup::
