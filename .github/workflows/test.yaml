@@ -28,13 +28,23 @@ jobs:
         run: |
           cd ${{ runner.temp }}
           mkdir -p macos-runtime-temp
+          echo Attaching release package...
           hdiutil attach ${{ github.workspace }}/packages/MAA-v4.20.0-macos-universal.dmg
-          cp /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib macos-runtime-temp/
-          cp -r /Volumes/MAA/MAA.app/Contents/Resources/resource macos-runtime-temp/resource
-          ln -s macos-runtime-temp/libonnxruntime.1.14.1.dylib macos-runtime-temp/libonnxruntime.dylib
-          ln -s macos-runtime-temp/libopencv_world4.407.dylib macos-runtime-temp/libopencv_world4.dylib
+          echo ::group::Copying files...
+          cp -v /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib macos-runtime-temp/
+          cp -vr /Volumes/MAA/MAA.app/Contents/Resources/resource macos-runtime-temp/resource
+          echo ::endgroup::
+          echo ::group::Linking files...
+          libonnxruntime_file=$(ls -1 macos-runtime-temp/libonnxruntime*.dylib)
+          ln -vs $libonnxruntime_file macos-runtime-temp/libonnxruntime.dylib
+          libopencv_world_file=$(ls -1 macos-runtime-temp/libopencv_world*.dylib)
+          ln -vs $libopencv_world_file macos-runtime-temp/libopencv_world4.dylib
+          echo ::endgroup::
           cd macos-runtime-temp
+          echo ::group::Compressing files...
           zip -yrX9 ${{ github.workspace }}/packages/MAA-v4.20.0-macos-runtime-universal.zip *
+          echo ::endgroup::
+          echo Detaching release package...
           hdiutil detach /Volumes/MAA
       - name: result
         run: |
