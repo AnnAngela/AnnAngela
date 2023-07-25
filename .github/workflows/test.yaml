@@ -22,15 +22,19 @@ jobs:
         env:
           TMPDIR: ${{ runner.temp }}
         run: |
-          wget https://github.com/MaaAssistantArknights/MaaRelease/releases/download/v4.20.0-beta.3/MAA-v4.20.0-beta.3-macos-universal.dmg
-          hdiutil attach MAA-v4.20.0-beta.3-macos-universal.dmg
-      - name: ls /Volumes
-        run: ls /Volumes
+          wget https://github.com/MaaAssistantArknights/MaaRelease/releases/download/v4.20.0/MAA-v4.20.0-macos-universal.dmg -O packages/MAA-v4.20.0-macos-universal.dmg
       - name: dylib
         run: |
-          mkdir -p ${{ runner.temp }}/dylib
-          cp /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib ${{ runner.temp }}/dylib
-          ls -lh ${{ runner.temp }}/dylib
-          du -hs ${{ runner.temp }}/dylib
-          zip -X9 MAA-${{ needs.create-tag.outputs.release_tag }}-macos-runtime-universal.zip ${{ runner.temp }}/dylib/*
-          ls -lh MAA-${{ needs.create-tag.outputs.release_tag }}-macos-runtime-universal.zip
+          cd ${{ runner.temp }}
+          mkdir -p macos-runtime-temp
+          hdiutil attach ${{ github.workspace }}/packages/MAA-v4.20.0-macos-universal.dmg
+          cp /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib macos-runtime-temp/
+          cp -r /Volumes/MAA/MAA.app/Contents/Resources/resource macos-runtime-temp/resource
+          ln -s macos-runtime-temp/libonnxruntime.1.14.1.dylib macos-runtime-temp/libonnxruntime.dylib
+          ln -s macos-runtime-temp/libopencv_world4.407.dylib macos-runtime-temp/libopencv_world4.dylib
+          zip -rX9 ${{ github.workspace }}/packages/MAA-v4.20.0-macos-runtime-universal.zip macos-runtime-temp/*
+          hdiutil detach /Volumes/MAA
+      - name: result
+        run: |
+          ls -l packages
+          unzip -l packages/MAA-v4.20.0-macos-runtime-universal.zip
