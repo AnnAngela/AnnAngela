@@ -34,8 +34,8 @@ jobs:
           # 每个服对应的 fbs commit - https://github.com/MooncellWiki/OpenArknightsFBS
           # 这个需要自己维护，因为外服跟国服版本号不一样所以没找到高效的自动化的办法
           # 不下载的 server 可以不写，国服不用写因为必定用的是最新的
-          fbs-heads: |
-            tw: 324260f
+          # fbs-heads: |
+          #   tw: 324260f
           # 要下载的文件，目前只能下载 excel 里的，如果需要下载 excel 外的文件再跟我说吧
           excel-files: |
             roguelike_topic_table
