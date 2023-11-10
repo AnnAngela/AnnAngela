@@ -46,7 +46,7 @@ jobs:
             activity_table
       - name: Copy txwy game data
         run: mkdir -p ./tools/ResourceUpdater/ArknightsGameData_Yostar && mv ${{ runner.temp }}/data/tw/excel/* ./tools/ResourceUpdater/ArknightsGameData_Yostar
-      - name: tree ${{ runner.temp }}/data/tw/excel/*
-        run: tree ${{ runner.temp }}/data/tw/excel/*
-      - name: tree ./tools/ResourceUpdater/ArknightsGameData_Yostar
-        run: tree ./tools/ResourceUpdater/ArknightsGameData_Yostar
+      - name: tree -F ${{ runner.temp }}/data
+        run: tree -F ${{ runner.temp }}/data
+      - name: tree -F ./tools/ResourceUpdater/ArknightsGameData_Yostar
+        run: tree -F ./tools/ResourceUpdater/ArknightsGameData_Yostar
