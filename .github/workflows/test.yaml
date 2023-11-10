@@ -44,9 +44,5 @@ jobs:
             gacha_table
             character_table
             activity_table
-      - name: Copy txwy game data
-        run: mkdir -p ./tools/ResourceUpdater/ArknightsGameData_Yostar && mv ${{ runner.temp }}/data/tw/excel/* ./tools/ResourceUpdater/ArknightsGameData_Yostar
-      - name: tree -F ${{ runner.temp }}/data
-        run: tree -F ${{ runner.temp }}/data
-      - name: tree -F ./tools/ResourceUpdater/ArknightsGameData_Yostar
-        run: tree -F ./tools/ResourceUpdater/ArknightsGameData_Yostar
+      - name: tree /F ${{ runner.temp }}/data
+        run: tree /F ${{ runner.temp }}/data
