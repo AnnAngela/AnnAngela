@@ -1,10 +1,7 @@
 name: test
 
 on:
-  workflow_dispatch:
-
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  workflow_dispatch
 
 jobs:
   test:
@@ -15,45 +12,41 @@ jobs:
       matrix:
         os:
           # - ubuntu-latest
-          - macos-latest
-          # - windows-latest
+          # - macos-latest
+          - windows-latest
     steps:
-      - name: download
-        env:
-          TMPDIR: ${{ runner.temp }}
-        run: |
-          mkdir packages
-          wget https://github.com/MaaAssistantArknights/MaaRelease/releases/download/v4.20.0/MAA-v4.20.0-macos-universal.dmg -O packages/MAA-v4.20.0-macos-universal.dmg
-      - name: dylib
-        run: |
-          cd ${{ runner.temp }}
-          mkdir -p macos-runtime-temp
-          echo Attaching release package...
-          hdiutil attach ${{ github.workspace }}/packages/MAA-v4.20.0-macos-universal.dmg
-          echo ::group::Copying files...
-          cp -v /Volumes/MAA/MAA.app/Contents/Frameworks/*.dylib macos-runtime-temp/
-          cp -vr /Volumes/MAA/MAA.app/Contents/Resources/resource macos-runtime-temp/resource
-          echo ::endgroup::
-          echo ::group::Linking files...
-          libonnxruntime_file=$(ls -1 macos-runtime-temp/libonnxruntime*.dylib)
-          ln -vs $libonnxruntime_file macos-runtime-temp/libonnxruntime.dylib
-          libopencv_world_file=$(ls -1 macos-runtime-temp/libopencv_world*.dylib)
-          ln -vs $libopencv_world_file macos-runtime-temp/libopencv_world4.dylib
-          echo ::endgroup::
-          cd macos-runtime-temp
-          echo ::group::Compressing files...
-          zip -yrX9 ${{ github.workspace }}/packages/MAA-v4.20.0-macos-runtime-universal.zip *
-          echo ::endgroup::
-          echo Detaching release package...
-          hdiutil detach /Volumes/MAA
-      - name: result
-        run: |
-          echo packages:
-          ls -lh packages
-          echo ::group::macos-runtime-universal.zip:
-          unzip -l packages/MAA-v4.20.0-macos-runtime-universal.zip
-          echo ::endgroup::
-          echo Original size:
-          du -hs ${{ runner.temp }}/macos-runtime-temp
-          echo Compressed size:
-          ls -lh packages/MAA-v4.20.0-macos-runtime-universal.zip
+      - uses: actions/checkout@v4
+        name: Checkout arkntools/data-downloader
+        with:
+          show-progress: false
+          repository: arkntools/data-downloader
+          ref: dist
+          path: ./arkntools-data-downloader
+          token: ${{ secrets.ARKNTOOLS_MAA_RESOURCE_UPDATER }}
+      - name: Download txwy game data
+        uses: ./arkntools-data-downloader
+        with:
+          cmd: downloadExcel
+          save-path: ${{ runner.temp }}/data
+          # 要下载哪些服务器的 (cn, us, jp, kr, tw)，如果全下载就不用加这个参数，默认全下载
+          servers: |
+            tw
+          # 每个服对应的 fbs commit - https://github.com/MooncellWiki/OpenArknightsFBS
+          # 这个需要自己维护，因为外服跟国服版本号不一样所以没找到高效的自动化的办法
+          # 不下载的 server 可以不写，国服不用写因为必定用的是最新的
+          fbs-heads: |
+            tw: 324260f
+          # 要下载的文件，目前只能下载 excel 里的，如果需要下载 excel 外的文件再跟我说吧
+          excel-files: |
+            roguelike_topic_table
+            item_table
+            building_data
+            gacha_table
+            character_table
+            activity_table
+      - name: Copy txwy game data
+        run: mkdir -p ./tools/ResourceUpdater/ArknightsGameData_Yostar && mv ${{ runner.temp }}/data/tw/excel/* ./tools/ResourceUpdater/ArknightsGameData_Yostar
+      - name: tree ${{ runner.temp }}/data/tw/excel/*
+        run: tree ${{ runner.temp }}/data/tw/excel/*
+      - name: tree ./tools/ResourceUpdater/ArknightsGameData_Yostar
+        run: tree ./tools/ResourceUpdater/ArknightsGameData_Yostar
