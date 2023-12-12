@@ -15,9 +15,95 @@ jobs:
           DEBIAN_FRONTEND=noninteractive apt-get install software-properties-common -y
           DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:ondrej/php
           apt-get update
-      - name: show php-fpm dependencies
+      - name: show packages pointed to php 8.2
         run: |
-          apt-cache depends php-fpm
-      - name: show php-redis dependencies
+          targets=(
+              "php-bcmath"
+              "php-bz2"
+              "php-cgi"
+              "php-cli"
+              "php-curl"
+              "php-dev"
+              "php-enchant"
+              "php-excimer"
+              "php-fpm"
+              "php-gd"
+              "php-gmp"
+              "php-imap"
+              "php-interbase"
+              "php-intl"
+              "php-ldap"
+              "php-lz4"
+              "php-mbstring"
+              "php-msgpack"
+              "php-mysql"
+              "php-odbc"
+              "php-pgsql"
+              "php-phpdbg"
+              "php-pinba"
+              "php-propro"
+              "php-pspell"
+              "php-readline"
+              "php-snmp"
+              "php-soap"
+              "php-sqlite3"
+              "php-sybase"
+              "php-tidy"
+              "php-xml"
+              "php-zip"
+          )
+          for target in "${targets[@]}"; do
+              echo =======
+              apt-cache depends $target
+          done
+      - name: show packages pointed to php 8.3
         run: |
-          apt-cache depends php-redis
+          targets=(
+              "php-amqp"
+              "php-apcu"
+              "php-ast"
+              "php-decimal"
+              "php-ds"
+              "php-gearman"
+              "php-gmagick"
+              "php-gnupg"
+              "php-grpc"
+              "php-http"
+              "php-igbinary"
+              "php-imagick"
+              "php-inotify"
+              "php-mailparse"
+              "php-maxminddb"
+              "php-memcache"
+              "php-memcached"
+              "php-mongodb"
+              "php-oauth"
+              "php-pcov"
+              "php-protobuf"
+              "php-ps"
+              "php-psr"
+              "php-raphf"
+              "php-rdkafka"
+              "php-redis"
+              "php-rrd"
+              "php-smbclient"
+              "php-solr"
+              "php-ssh2"
+              "php-stomp"
+              "php-swoole"
+              "php-uopz"
+              "php-uploadprogress"
+              "php-uuid"
+              "php-vips"
+              "php-xdebug"
+              "php-xhprof"
+              "php-xmlrpc"
+              "php-yac"
+              "php-yaml"
+              "php-zmq"
+              "php-zstd"
+          )
+          for target in "${targets[@]}"; do
+              echo =======
+              apt-cache depends $target
+          done
