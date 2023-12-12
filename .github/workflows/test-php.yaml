@@ -3,6 +3,10 @@ name: test
 on:
   workflow_dispatch
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   test:
     name: Test
@@ -17,14 +21,92 @@ jobs:
           apt-get update
       - name: show packages pointed to php 8.2
         run: |
-          targets=( "php-bcmath" "php-bz2" "php-cgi" "php-cli" "php-curl" "php-dev" "php-enchant" "php-excimer" "php-fpm" "php-gd" "php-gmp" "php-imap" "php-interbase" "php-intl" "php-ldap" "php-lz4" "php-mbstring" "php-msgpack" "php-mysql" "php-odbc" "php-pgsql" "php-phpdbg" "php-pinba" "php-propro" "php-pspell" "php-readline" "php-snmp" "php-soap" "php-sqlite3" "php-sybase" "php-tidy" "php-xml" "php-zip" )
+          targets=(
+              "php-bcmath"
+              "php-bz2"
+              "php-cgi"
+              "php-cli"
+              "php-curl"
+              "php-dev"
+              "php-enchant"
+              "php-excimer"
+              "php-fpm"
+              "php-gd"
+              "php-gmp"
+              "php-imap"
+              "php-interbase"
+              "php-intl"
+              "php-ldap"
+              "php-lz4"
+              "php-mbstring"
+              "php-msgpack"
+              "php-mysql"
+              "php-odbc"
+              "php-pgsql"
+              "php-phpdbg"
+              "php-pinba"
+              "php-propro"
+              "php-pspell"
+              "php-readline"
+              "php-snmp"
+              "php-soap"
+              "php-sqlite3"
+              "php-sybase"
+              "php-tidy"
+              "php-xml"
+              "php-zip"
+          )
           for target in "${targets[@]}"; do
               echo =======
               apt-cache depends $target
           done
       - name: show packages pointed to php 8.3
         run: |
-          targets=( "php-amqp" "php-apcu" "php-ast" "php-decimal" "php-ds" "php-gearman" "php-gmagick" "php-gnupg" "php-grpc" "php-http" "php-igbinary" "php-imagick" "php-inotify" "php-mailparse" "php-maxminddb" "php-memcache" "php-memcached" "php-mongodb" "php-oauth" "php-pcov" "php-protobuf" "php-ps" "php-psr" "php-raphf" "php-rdkafka" "php-redis" "php-rrd" "php-smbclient" "php-solr" "php-ssh2" "php-stomp" "php-swoole" "php-uopz" "php-uploadprogress" "php-uuid" "php-vips" "php-xdebug" "php-xhprof" "php-xmlrpc" "php-yac" "php-yaml" "php-zmq" "php-zstd" )
+          targets=(
+              "php-amqp"
+              "php-apcu"
+              "php-ast"
+              "php-decimal"
+              "php-ds"
+              "php-gearman"
+              "php-gmagick"
+              "php-gnupg"
+              "php-grpc"
+              "php-http"
+              "php-igbinary"
+              "php-imagick"
+              "php-inotify"
+              "php-mailparse"
+              "php-maxminddb"
+              "php-memcache"
+              "php-memcached"
+              "php-mongodb"
+              "php-oauth"
+              "php-pcov"
+              "php-protobuf"
+              "php-ps"
+              "php-psr"
+              "php-raphf"
+              "php-rdkafka"
+              "php-redis"
+              "php-rrd"
+              "php-smbclient"
+              "php-solr"
+              "php-ssh2"
+              "php-stomp"
+              "php-swoole"
+              "php-uopz"
+              "php-uploadprogress"
+              "php-uuid"
+              "php-vips"
+              "php-xdebug"
+              "php-xhprof"
+              "php-xmlrpc"
+              "php-yac"
+              "php-yaml"
+              "php-zmq"
+              "php-zstd"
+          )
           for target in "${targets[@]}"; do
               echo =======
               apt-cache depends $target
