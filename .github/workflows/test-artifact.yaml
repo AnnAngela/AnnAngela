@@ -16,4 +16,4 @@ jobs:
           npm i @actions/artifact@2.0.0
       - name: Running test file
         run: |
-          node test
+          node test.mjs
