@@ -1,4 +1,4 @@
-name: Metrics
+name: stall-action
 on:
   schedule:
     - cron: 0/30 * * * *
