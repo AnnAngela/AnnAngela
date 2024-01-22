@@ -27,24 +27,6 @@ jobs:
           sparse-checkout: |
             polyfill-libraries/3.111.0/
             polyfill-libraries/3.111.0.json
-      - uses: actions/checkout@v4
-        name: step2
-        with:
-          show-progress: false
-          repository: JakeChampion/polyfill-service
-          path: step2
-          sparse-checkout: |
-            polyfill-libraries/3.111.0*
-      - uses: actions/checkout@v4
-        name: step3
-        with:
-          show-progress: false
-          repository: JakeChampion/polyfill-service
-          path: step3
-          sparse-checkout: |
-            polyfill-libraries/3.111.*
       - name: result
         run: |
-          ls -lh step1
-          ls -lh step2
-          ls -lh step3
+          tree -L 3 .
