@@ -25,8 +25,8 @@ jobs:
           repository: JakeChampion/polyfill-service
           path: step1
           sparse-checkout: |
-            polyfill-libraries/3.111.0/
-            polyfill-libraries/3.111.0.json
+            polyfill-libraries/3.111.0*
+          sparse-checkout-cone-mode: false
       - name: result
         run: |
           tree -L 3 .
