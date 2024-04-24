@@ -26,3 +26,7 @@ jobs:
         run:  lscpu
       - name: free -h
         run:  free -h
+      - name: swapon --show
+        run:  swapon --show
+      - name: cat /proc/swaps
+        run:  cat /proc/swaps
