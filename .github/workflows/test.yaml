@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: cat /proc/cpuinfo
         run:  cat /proc/cpuinfo
-      - name: vmstat
-        run:  vmstat
+      - name: vmstat -wS M
+        run:  vmstat -wS M
       - name: lscpu
         run:  lscpu
       - name: free -h
