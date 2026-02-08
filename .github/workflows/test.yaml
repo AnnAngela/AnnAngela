@@ -32,3 +32,5 @@ jobs:
         run:  swapon --show
       - name: cat /proc/swaps
         run:  cat /proc/swaps
+      - name: myIP
+        run: curl https://helper.annangela.cn/myIP.php
